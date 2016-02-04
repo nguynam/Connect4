@@ -44,7 +44,7 @@ void printBoard(int num_rows, int num_columns, int board[num_rows][num_columns])
 		}
 		printf("\n");
 	}
-	printf("Amount to win: %d", win);
+	//printf("Amount to win: %d", win);
 }
 /******************************************************************
 Check if a player has won
@@ -56,13 +56,12 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 Function to place a token in a column
 ******************************************************************/
 int place_token(int player, int column, int num_rows, int num_columns, int board[num_rows][num_columns]){
+	for(int i = size-1; i >= 0; i--){
+		if(board[i][column-1] == 0){
+			board[i][column-1] = player;
+			return 0;
+		}
+	}
 	return 0;
 }
-
-//int main(int argc, char *argv[]) {
-//	setBoard();	
-//	int board[size][size];
-//	initialize(size, size, board);
-//	printBoard(size, size, board);
-//}
 	
