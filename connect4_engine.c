@@ -2,7 +2,6 @@
 
 int size;
 int win;
-int board[10][10];
 int player1 = 1;
 int player2 = 2;
 
@@ -20,13 +19,23 @@ void initialize(int num_rows, int num_cols, int array[size][size]){
 			array[r][c] = 0;
 		}
 	}
+	//Print column numbers
+	for(int i = 1; i <= size; i++){
+		printf("%d\t", i);
+	}
+	printf("\n");
+	for(int i = 1; i <= size; i++){
+		printf("-\t");
+	}
+	printf("\n");
+	//Print board
 	for(int i = 0; i <size; i++){
 		for(int f = 0; f <size; f++){
-			
 			printf("%d\t",array[i][f]);
 		}
 		printf("\n");
 	}
+	printf("Amount to win: %d", win);
 }
 //Check if there is a winner
 int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows][num_columns]){
