@@ -16,8 +16,7 @@ int main(int argc, char *argv[]) {
 	a[9][9] = 3;
 	for(int i = 0; i <10; i++){
 		for(int f = 0; f <10; f++){
-			//a[i][f] = 0;
-			//count++;
+			
 			printf("%d\t",a[i][f]);
 		}
 		printf("\n");

@@ -1,10 +1,13 @@
 #include <stdio.h>
 #include "connect4_engine.h"
+#include <stdbool.h>
 
 int size;
 int win;
 int player1 = 1;
 int player2 = 2;
+int currPlayer = 1;
+bool won = false;
 /******************************************************************
 Asks user for input for size of board and length to win
 ******************************************************************/
@@ -38,13 +41,12 @@ void printBoard(int num_rows, int num_columns, int board[num_rows][num_columns])
 	}
 	printf("\n");
 	//Print board
-	for(int i = 0; i <size; i++){
-		for(int f = 0; f <size; f++){
+	for(int i = 0; i < size; i++){
+		for(int f = 0; f < size; f++){
 			printf("%d\t",board[i][f]);
 		}
 		printf("\n");
 	}
-	//printf("Amount to win: %d", win);
 }
 /******************************************************************
 Check if a player has won
@@ -62,6 +64,7 @@ int place_token(int player, int column, int num_rows, int num_columns, int board
 			return 0;
 		}
 	}
+	printf("Error: Column has no open slots!");
 	return 0;
 }
 	
