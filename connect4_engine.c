@@ -6,6 +6,13 @@ int board[10][10];
 int player1 = 1;
 int player2 = 2;
 
+//User input size and length to win
+void setBoard(){
+	printf("Enter the desired size of the board: ");
+	scanf("%d", &size);
+	printf("Enter amount needed to win: ");
+	scanf("%d", &win);
+}
 //Initialize the array
 void initialize(int num_rows, int num_cols, int array[size][size]){
 	for (int r = 0; r < num_rows; r++) {
@@ -13,19 +20,10 @@ void initialize(int num_rows, int num_cols, int array[size][size]){
 			array[r][c] = 0;
 		}
 	}
-}
-//User input size and length to win
-void setBoard(){
-	printf("Enter the desired size of the board: ");
-	scanf("%d", &size);
-	printf("Enter amount needed to win: ");
-	scanf("%d", &win);
-	int board[size][size];
-	initialize(size, size, board);
 	for(int i = 0; i <size; i++){
 		for(int f = 0; f <size; f++){
 			
-			printf("%d\t",board[i][f]);
+			printf("%d\t",array[i][f]);
 		}
 		printf("\n");
 	}
@@ -41,5 +39,7 @@ int place_token(int player, int column, int num_rows, int num_columns, int board
 
 int main(int argc, char *argv[]) {
 	setBoard();	
+	int board[size][size];
+	initialize(size, size, board);
 }
 	
