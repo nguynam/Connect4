@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "connect4_engine.h"
 
 int size;
 int win;
@@ -49,19 +50,19 @@ void printBoard(int num_rows, int num_columns, int board[num_rows][num_columns])
 Check if a player has won
 ******************************************************************/
 int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows][num_columns]){
-	
+	return 0;
 }
 /******************************************************************
 Function to place a token in a column
 ******************************************************************/
 int place_token(int player, int column, int num_rows, int num_columns, int board[num_rows][num_columns]){
-	
+	return 0;
 }
 
-int main(int argc, char *argv[]) {
-	setBoard();	
-	int board[size][size];
-	initialize(size, size, board);
-	printBoard(size, size, board);
-}
+//int main(int argc, char *argv[]) {
+//	setBoard();	
+//	int board[size][size];
+//	initialize(size, size, board);
+//	printBoard(size, size, board);
+//}
 	
