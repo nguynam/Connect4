@@ -14,11 +14,14 @@ void setBoard(){
 }
 //Initialize the array
 void initialize(int num_rows, int num_cols, int array[size][size]){
-	for (int r = 0; r < num_rows; r++) {
-		for (int c = 0; c < num_cols; c++) {
-			array[r][c] = 0;
+	for (int i = 0; i < num_rows; i++) {
+		for (int j = 0; j < num_cols; j++) {
+			array[i][j] = 0;
 		}
 	}
+}
+//Print game board
+void printBoard(int num_rows, int num_columns, int board[num_rows][num_columns]){
 	//Print column numbers
 	for(int i = 1; i <= size; i++){
 		printf("%d\t", i);
@@ -31,7 +34,7 @@ void initialize(int num_rows, int num_cols, int array[size][size]){
 	//Print board
 	for(int i = 0; i <size; i++){
 		for(int f = 0; f <size; f++){
-			printf("%d\t",array[i][f]);
+			printf("%d\t",board[i][f]);
 		}
 		printf("\n");
 	}
@@ -50,5 +53,6 @@ int main(int argc, char *argv[]) {
 	setBoard();	
 	int board[size][size];
 	initialize(size, size, board);
+	printBoard(size, size, board);
 }
 	
