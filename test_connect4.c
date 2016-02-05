@@ -19,6 +19,7 @@ int main(int argc, char *argv[]) {
 					currPlayer = 1;
 				}
 				else{
+					winner(size, size, win, board);
 					currPlayer = 2;
 				}
 			}
@@ -34,6 +35,7 @@ int main(int argc, char *argv[]) {
 					currPlayer = 2;
 				}
 				else{
+					winner(size, size, win, board);
 					currPlayer = 1;
 				}
 			}
