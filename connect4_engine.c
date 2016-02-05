@@ -79,6 +79,37 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 			}
 		}
 	}
+	//Check Horizontal
+	for(int i = size-1; i >= 0; i--){
+		count1 = 0;
+		count2 = 0;
+		for(int j = 0; j < size; j++){
+			if(array[i][j] == 1){
+				count1++;
+				count2 = 0;
+				if(count1 == length_to_win){
+					printf("Player 1 Won!");
+					won = true;
+					return 1; 
+				}
+			}
+			else{
+				count1 = 0;
+			}
+			if(array[i][j] == 2){
+				count2++;
+				count1 = 0;
+				if(count2 == length_to_win){
+					printf("Player 2 Won!");
+					won = true;
+					return 2;
+				}
+			}
+			else{
+				count2 = 0;
+			}
+		}
+	}
 	return 0;
 }
 /******************************************************************
