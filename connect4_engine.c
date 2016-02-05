@@ -63,7 +63,6 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 				count1++;
 				count2 = 0;
 				if(count1 == length_to_win){
-					printf("Player 1 Won!");
 					won = true;
 					return 1;
 				}
@@ -72,7 +71,6 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 				count2++;
 				count1 = 0;
 				if(count2 == length_to_win){
-					printf("Player 2 Won!");
 					won = true;
 					return 2;
 				}
@@ -88,7 +86,6 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 				count1++;
 				count2 = 0;
 				if(count1 == length_to_win){
-					printf("Player 1 Won!");
 					won = true;
 					return 1; 
 				}
@@ -100,7 +97,6 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 				count2++;
 				count1 = 0;
 				if(count2 == length_to_win){
-					printf("Player 2 Won!");
 					won = true;
 					return 2;
 				}
