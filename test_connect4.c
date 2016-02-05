@@ -6,6 +6,8 @@ int main(int argc, char *argv[]) {
 	int board[size][size];
 	initialize(size, size, board);
 	printBoard(size, size, board);
+	bool player1 = false;
+	bool player2 = false;
 	while(won == false){
 		int column;
 		if(currPlayer == 1){
@@ -19,7 +21,9 @@ int main(int argc, char *argv[]) {
 					currPlayer = 1;
 				}
 				else{
-					winner(size, size, win, board);
+					if(winner(size, size, win, board) == 1){
+						player1 = true;
+					}
 					currPlayer = 2;
 				}
 			}
@@ -35,14 +39,19 @@ int main(int argc, char *argv[]) {
 					currPlayer = 2;
 				}
 				else{
-					winner(size, size, win, board);
+					if(winner(size, size, win, board) == 2){
+						player2 = true;
+					}
 					currPlayer = 1;
 				}
 			}
 		}
-		for(int i = 0; i < 25; i++){
-			printf("\n");
-		}
 		printBoard(size, size, board);
+		if(player1 == true){
+			printf("Player 1 Won!");
+		}
+		if(player2 == true){
+			printf("Player 2 Won!");
+		}
 	}
 }
