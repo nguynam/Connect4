@@ -4,8 +4,6 @@
 
 int size;
 int win;
-int player1 = 1;
-int player2 = 2;
 int currPlayer = 1;
 bool won = false;
 /******************************************************************
@@ -118,7 +116,6 @@ int place_token(int player, int column, int num_rows, int num_columns, int board
 			return 1;
 		}
 	}
-	printf("Error: Column has no open slots!");
 	return 0;
 }
 	

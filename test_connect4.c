@@ -8,23 +8,28 @@ int main(int argc, char *argv[]) {
 	printBoard(size, size, board);
 	bool player1 = false;
 	bool player2 = false;
+	bool colError = false;
+	bool fullCol = false;
 	while(won == false){
 		int column;
 		if(currPlayer == 1){
 			printf("Player 1: ");
 			scanf("%d", &column);
 			if(column > size){
-				printf("Error: Column does not exist");
+				colError = true;
 			}
 			else{
 				if(place_token(1, column, size, size, board) == 0){
 					currPlayer = 1;
+					fullCol = true;
 				}
 				else{
 					if(winner(size, size, win, board) == 1){
 						player1 = true;
 					}
-					currPlayer = 2;
+					else{
+						currPlayer = 2;
+					}
 				}
 			}
 		}
@@ -32,17 +37,20 @@ int main(int argc, char *argv[]) {
 			printf("Player 2: ");
 			scanf("%d", &column);
 			if(column > size){
-				printf("Error: Column does not exist");
+				colError = true;
 			}
 			else{
 				if(place_token(2, column, size, size, board) == 0){
+					fullCol = true;
 					currPlayer = 2;
 				}
 				else{
 					if(winner(size, size, win, board) == 2){
 						player2 = true;
 					}
-					currPlayer = 1;
+					else{
+						currPlayer = 1;
+					}
 				}
 			}
 		}
@@ -52,6 +60,14 @@ int main(int argc, char *argv[]) {
 		}
 		if(player2 == true){
 			printf("Player 2 Won!");
+		}
+		if(colError == true){
+			printf("Error: Column does not exist\n");
+			colError = false;
+		}
+		if(fullCol == true){
+			printf("Error: Column has no open slots!\n");
+			fullCol = false;
 		}
 	}
 }

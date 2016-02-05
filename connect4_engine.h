@@ -3,8 +3,6 @@
 
 extern int size;
 extern int win;
-extern int player1;
-extern int player2;
 extern int currPlayer;
 extern bool won;
 
