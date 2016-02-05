@@ -12,25 +12,33 @@ int main(int argc, char *argv[]) {
 			printf("Player 1: ");
 			scanf("%d", &column);
 			if(column > size){
-				printf("Column exceeds size of the board");
+				printf("Error: Column does not exist");
 			}
 			else{
-				place_token(1, column, size, size, board);
-				currPlayer = 2;
+				if(place_token(1, column, size, size, board) == 0){
+					currPlayer = 1;
+				}
+				else{
+					currPlayer = 2;
+				}
 			}
 		}
 		else{
 			printf("Player 2: ");
 			scanf("%d", &column);
 			if(column > size){
-				printf("Column exceeds size of the board");
+				printf("Error: Column does not exist");
 			}
 			else{
-				place_token(2, column, size, size, board);
-				currPlayer = 1;
+				if(place_token(2, column, size, size, board) == 0){
+					currPlayer = 2;
+				}
+				else{
+					currPlayer = 1;
+				}
 			}
 		}
-		for(int i = 0; i < 30; i++){
+		for(int i = 0; i < 25; i++){
 			printf("\n");
 		}
 		printBoard(size, size, board);

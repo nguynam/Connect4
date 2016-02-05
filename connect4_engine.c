@@ -61,7 +61,7 @@ int place_token(int player, int column, int num_rows, int num_columns, int board
 	for(int i = size-1; i >= 0; i--){
 		if(board[i][column-1] == 0){
 			board[i][column-1] = player;
-			return 0;
+			return 1;
 		}
 	}
 	printf("Error: Column has no open slots!");
