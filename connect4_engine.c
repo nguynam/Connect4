@@ -5,6 +5,8 @@
 int size;
 int win;
 int currPlayer = 1;
+int currCol;
+int currRow;
 bool won = false;
 /******************************************************************
 Asks user for input for size of board and length to win
@@ -104,15 +106,57 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 			}
 		}
 	}
+	//Check Foward Diagnol
+	count1 = 0;
+	count2 = 0;
+	while(currCol > 0 || currRow < size - 1){
+		if(currRow == size - 1){
+			break;
+		}
+		else{
+			currCol--;
+			currRow++;
+		}
+	}
+	while(currCol < size -1 || currRow >= 0){
+		if(array[currRow][currCol] == 1){
+			count1++;
+			count2 = 0;
+			if(count1 == length_to_win){
+				won = true;
+				return 1; 
+			}
+		}
+		else{
+			count1 = 0;
+		}
+		if(array[currRow][currCol] == 2){
+			count2++;
+			count1 = 0;
+			if(count2 == length_to_win){
+				won = true;
+				return 2; 
+			}
+		}
+		else{
+			count2 = 0;
+		}
+		currCol++;
+		currRow--;
+	}
+	//Check Backward Diagnol
+	
 	return 0;
 }
 /******************************************************************
 Function to place a token in a column
 ******************************************************************/
 int place_token(int player, int column, int num_rows, int num_columns, int board[num_rows][num_columns]){
+	currCol = column - 1;
 	for(int i = size-1; i >= 0; i--){
 		if(board[i][column-1] == 0){
 			board[i][column-1] = player;
+			currRow = i;
 			return 1;
 		}
 	}
