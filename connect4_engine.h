@@ -5,6 +5,8 @@ extern int size;
 extern int win;
 extern int currPlayer;
 extern bool won;
+extern int currCol;
+extern int currRow;
 
 void setBoard();
 
