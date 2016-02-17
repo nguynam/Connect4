@@ -184,7 +184,7 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 		currCol--;
 		currRow--;
 	}
-	return 0;
+	return -1;
 }
 /******************************************************************
 Function to place a token in a column
