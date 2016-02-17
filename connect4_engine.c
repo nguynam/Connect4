@@ -106,19 +106,59 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 			}
 		}
 	}
-	//Check Foward Diagnol
+	//Check Backward Diagnol
 	count1 = 0;
 	count2 = 0;
-	while(currCol > 0 || currRow < size - 1){
+	int thisCurrCol = currCol;
+	int thisCurrRow = currRow;
+	while(thisCurrCol > 0 || thisCurrRow < size - 1){
+		if(thisCurrRow == size - 1){
+			break;
+		}
+		else{
+			thisCurrCol--;
+			thisCurrRow++;
+		}
+	}
+	while(thisCurrCol < size -1 || thisCurrRow >= 0){
+		if(array[thisCurrRow][thisCurrCol] == 1){
+			count1++;
+			count2 = 0;
+			if(count1 == length_to_win){
+				won = true;
+				return 1; 
+			}
+		}
+		else{
+			count1 = 0;
+		}
+		if(array[thisCurrRow][thisCurrCol] == 2){
+			count2++;
+			count1 = 0;
+			if(count2 == length_to_win){
+				won = true;
+				return 2; 
+			}
+		}
+		else{
+			count2 = 0;
+		}
+		thisCurrCol++;
+		thisCurrRow--;
+	}
+	//Check Forward Diagnol
+	count1 = 0;
+	count2 = 0;
+	while(currCol < size - 1 || currRow < size - 1){
 		if(currRow == size - 1){
 			break;
 		}
 		else{
-			currCol--;
+			currCol++;
 			currRow++;
 		}
 	}
-	while(currCol < size -1 || currRow >= 0){
+	while(currCol >= 0 || currRow >= 0){
 		if(array[currRow][currCol] == 1){
 			count1++;
 			count2 = 0;
@@ -141,11 +181,9 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 		else{
 			count2 = 0;
 		}
-		currCol++;
+		currCol--;
 		currRow--;
 	}
-	//Check Backward Diagnol
-	
 	return 0;
 }
 /******************************************************************
