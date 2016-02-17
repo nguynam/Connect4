@@ -2,7 +2,9 @@
 #include "connect4_engine.h"
 
 int main(int argc, char *argv[]) {
-	setBoard();	
+	//setBoard();
+	size = atoi(argv[1]);
+	win = atoi(argv[2]);	
 	int board[size][size];
 	initialize(size, size, board);
 	printBoard(size, size, board);
@@ -56,10 +58,10 @@ int main(int argc, char *argv[]) {
 		}
 		printBoard(size, size, board);
 		if(player1 == true){
-			printf("Player 1 Won!");
+			printf("Player 1 Won!\n");
 		}
 		if(player2 == true){
-			printf("Player 2 Won!");
+			printf("Player 2 Won!\n");
 		}
 		if(colError == true){
 			printf("Error: Column does not exist\n");
