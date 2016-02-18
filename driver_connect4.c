@@ -2,7 +2,10 @@
 #include "connect4_engine.h"
 
 int main(int argc, char *argv[]) {
-	//setBoard();
+	if(argc > 3){
+		printf("Too many arguments\n");
+		return 0;
+	}
 	size = atoi(argv[1]);
 	win = atoi(argv[2]);	
 	int board[size][size];
