@@ -112,7 +112,7 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 	int thisCurrCol = currCol;
 	int thisCurrRow = currRow;
 	while(thisCurrCol > 0 || thisCurrRow < size - 1){
-		if(thisCurrRow == size - 1){
+		if(thisCurrRow == size - 1 || thisCurrCol == 0){
 			break;
 		}
 		else{
@@ -120,7 +120,7 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 			thisCurrRow++;
 		}
 	}
-	while(thisCurrCol < size -1 || thisCurrRow >= 0){
+	while(thisCurrCol <= size -1){
 		if(array[thisCurrRow][thisCurrCol] == 1){
 			count1++;
 			count2 = 0;
@@ -150,7 +150,7 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 	count1 = 0;
 	count2 = 0;
 	while(currCol < size - 1 || currRow < size - 1){
-		if(currRow == size - 1){
+		if(currRow == size - 1 || currCol == size - 1){
 			break;
 		}
 		else{
@@ -158,7 +158,7 @@ int winner(int num_rows, int num_columns, int length_to_win, int array[num_rows]
 			currRow++;
 		}
 	}
-	while(currCol >= 0 || currRow >= 0){
+	while(currCol >= 0){
 		if(array[currRow][currCol] == 1){
 			count1++;
 			count2 = 0;
