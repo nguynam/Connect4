@@ -6,6 +6,10 @@ int main(int argc, char *argv[]) {
 		printf("Too many arguments\n");
 		return 0;
 	}
+	if(argc < 3){
+		printf("Input size and length to win\n");
+		return 0;
+	}
 	size = atoi(argv[1]);
 	win = atoi(argv[2]);	
 	int board[size][size];
